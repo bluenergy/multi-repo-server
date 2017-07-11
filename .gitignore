@@ -1,0 +1,6 @@
+.idea/
+node_modules/
+# 项目的git源码目录
+workspace/
+# 项目build后的server目录
+projects/
