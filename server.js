@@ -14,7 +14,7 @@ app.get('/', function (req, res) {
 
 // 部署请求
 app.post('/deploy', function (req, res) {
-    if (req.body.project === '阿里b版') {
+    if (req.body.project === 'gulp-AngularJS1.x-seed') {
         scripts.deployRepository('gulp-AngularJS1.x-seed' , 'https://github.com/hjzheng/gulp-AngularJS1.x-seed.git', req.body.branch, req.body.env, 'build');
         res.status(200).end();
     }

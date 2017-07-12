@@ -19,6 +19,10 @@ function deployRepository(repository, address, branch, env, buildDirName) {
                             //  项目目录存在
                             pull(workspaceProjectPath).then(
                                 () => {
+                                    return checkBranch(workspaceProjectPath, branch);
+                                }
+                            ).then(
+                                () => {
                                     return pathStatus(workspaceProjectNodeModulesPath).then(
                                         function (stat) {
                                             if (stat.isDirectory()) {
@@ -45,6 +49,10 @@ function deployRepository(repository, address, branch, env, buildDirName) {
                         // 根目录存在，项目目录不存在
                         clone(workspacePath, address).then(
                             () => {
+                                return checkBranch(workspaceProjectPath, branch);
+                            }
+                        ).then(
+                            () => {
                                 return install(workspaceProjectPath);
                             }
                         ).then(
@@ -68,6 +76,10 @@ function deployRepository(repository, address, branch, env, buildDirName) {
                     }
                     clone(workspacePath, address).then(
                         () => {
+                            return checkBranch(workspaceProjectPath, branch);
+                        }
+                    ).then(
+                        () => {
                             return install(workspaceProjectPath);
                         }
                     ).then(
@@ -89,7 +101,10 @@ function clone(path, address) {
     console.log('开始clone项目');
     return execInPromise(`cd ${path} && git clone ${address}`);
 }
-
+function checkBranch(path, branch) {
+    console.log(`开始切换分支,切换到${branch}分支`);
+    return execInPromise(`cd ${path} && git checkout ${branch}`);
+}
 function install(path) {
     console.log('开始安装项目依赖');
     return execInPromise(`cd ${path} && npm install`);
