@@ -1,8 +1,8 @@
 # Multi Repo Deploy SYSTEM
 
 ## Background
-We are using the practice of seperating front-end & back-end service. So it is diffcult for our QA testing different features in branchs. We noticed that we need a way to deploy different branches of front-end server and the same time they are pointing to the same back-end server.
-And this project aims to deploy our front-end files under different branches to one front static http server and make our QA be able to test different features in the same env.
+We are using the practice of seperating front-end & back-end service. So it is diffcult for our QA testing different features in different branchs. We noticed that we need a way to deploy different branches of the same front-end server and make they point to the same back-end server.
+This project aims to deploy our front-end files under different branches to one front static http server and make our QA be able to test different features in the same env.
 We call this project - **FENG Mulit Repot Deployment System**.
 
 ## How to use
